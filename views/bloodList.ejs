@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blood List</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>A List Of Blood Types To Provide </h1>
+    <div class="form-box">
+
+    <div class="box-form">
+        <h3>Blood check list:</h3>
+        <% for (let i = 0; i < blood_list.length; i++) { %>
+          <% if(blood_list[i].supply != 0){ %>
+            <div class="check-item">
+                <input type="checkbox">
+                <p> Please give <%= blood_list[i].supply %> units of blood type <%= blood_list[i].type %> </p>
+            </div>
+          <% } %>
+        <% }  %>
+        <label class="warning" style="visibility:<%=notEnoughFlag%>" >Cannot Provide All The Blood Units You Requested. due to lack of supply</label>
+        <form action="/" method="GET">
+            <button type="submit">Confirm</button>
+        </form>
+    </div>
+
+
+</body>
+</html>
